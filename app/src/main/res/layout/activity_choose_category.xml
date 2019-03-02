@@ -1,18 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.category.ChooseCategoryActivity">
+    tools:context=".presentation.category.choose.ChooseCategoryActivity">
 
-    <TextView
+    <include layout="@layout/toolbar_no_icon" />
+
+    <!-- guidline -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/vertical_space_toolbar_icon" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/vertical_space_toolbar_icon" />
+
+    <!-- content -->
+    <com.example.schoterspersonal.component.views.HelveticaTextView
+        android:id="@+id/tv_choose_cat_header"
+        android:text="@string/choose_cat_header"
+        android:textSize="@dimen/font_size_l"
+        android:textColor="@color/colorDarkGrey"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/horizontal_space_l"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <com.example.schoterspersonal.component.views.OpenSansTextView
+        android:id="@+id/tv_choose_cat_description"
+        android:text="@string/choose_cat_description"
+        android:textSize="@dimen/font_size_m"
+        android:textColor="@color/colorDarkGrey"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/horizontal_space_m"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintTop_toBottomOf="@+id/tv_choose_cat_header" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/size_0"
+        android:layout_marginTop="@dimen/horizontal_space_l"
+        android:layout_marginBottom="@dimen/horizontal_space_l"
+        app:chipSpacingHorizontal="@dimen/horizontal_space_s"
+        app:chipSpacingVertical="@dimen/horizontal_space_s"
+        app:layout_constraintTop_toBottomOf="@id/tv_choose_cat_description"
+        app:layout_constraintBottom_toTopOf="@id/btn_done"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_left"
+        app:layout_constraintRight_toRightOf="@id/guideline_right" />
+
+    <!-- button -->
+    <com.example.schoterspersonal.component.views.HelveticaBoldButton
+        android:id="@+id/btn_done"
+        android:text="@string/btn_done"
+        android:textSize="@dimen/font_size_m"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/button_height_l"
+        android:layout_marginBottom="@dimen/horizontal_space_s"
+        android:background="@color/colorBlue"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- error layout -->
+    <ImageView
+        android:id="@+id/iv_error"
+        android:src="@drawable/ic_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/btn_try_again"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintRight_toRightOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+    <com.example.schoterspersonal.component.views.HelveticaTextView
+        android:id="@+id/tv_error_message"
+        android:text="@string/error_message"
+        android:textSize="@dimen/font_size_m"
+        android:textColor="@color/colorDarkGrey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/horizontal_space_m"
+        app:layout_constraintTop_toBottomOf="@+id/iv_error"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <com.example.schoterspersonal.component.views.HelveticaBoldButton
+        android:id="@+id/btn_try_again"
+        android:text="@string/btn_try_again"
+        android:textSize="@dimen/font_size_m"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/button_height_l"
+        android:layout_marginBottom="@dimen/horizontal_space_s"
+        android:background="@color/colorBlue"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- constraint group -->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_data_displayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_choose_cat_header,
+        tv_choose_cat_description, chip_group, btn_done " />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_error_displayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="iv_error,
+        tv_error_message, btn_try_again" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
