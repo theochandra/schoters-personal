@@ -17,5 +17,6 @@
 
     <!-- show category screen start -->
     <string name="show_cat_title">Your Personal Category</string>
+    <string name="show_cat_published_at">Published at&#160;%1$s</string>
     <!-- show category screen end -->
 </resources>

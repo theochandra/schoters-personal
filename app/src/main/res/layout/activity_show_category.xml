@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.schoterspersonal.presentation.category.show.ShowCategoryActivity">
+
+    <include layout="@layout/toolbar" />
+
+    <!-- guidline -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/vertical_space_toolbar_icon" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/vertical_space_toolbar_icon" />
+
+    <ScrollView
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/size_0"
+        android:layout_marginTop="@dimen/horizontal_space_s"
+        android:layout_marginBottom="@dimen/horizontal_space_m"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/btn_done"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_left"
+        app:layout_constraintRight_toRightOf="@id/guideline_right" >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_category_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </ScrollView>
+
+    <com.example.schoterspersonal.component.views.HelveticaBoldButton
+        android:id="@+id/btn_done"
+        android:text="@string/btn_done"
+        android:textSize="@dimen/font_size_m"
+        android:textColor="@color/colorWhite"
+        android:textAllCaps="false"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/button_height_l"
+        android:layout_marginBottom="@dimen/horizontal_space_s"
+        android:background="@color/colorBlue"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_right"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
